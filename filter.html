@@ -1,0 +1,112 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High Schools by Career Interests</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        label {
+            font-weight: bold;
+        }
+        .school {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>High Schools by Career Interests</h1>
+    <form>
+        <div>
+            <input type="radio" name="activity" id="Agriculture and Environmental Systems" value="Agriculture and Environmental Systems">
+            <label for="Agriculture and Environmental Systems">Agriculture and Environmental Systems</label>
+            <input type="radio" name="activity" id="All Career Interests" value="All Career Interests">
+            <label for="All Career Interests">All Career Interests</label>
+            <input type="radio" name="activity" id="Architecture and Construction" value="Architecture and Construction">
+            <label for="Architecture and Construction">Architecture and Construction</label>
+            <input type="radio" name="activity" id="Arts and Communication" value="Arts and Communication">
+            <label for="art">Arts and Communication</label>
+            <input type="radio" name="activity" id="Business, Management" value="Business, Management">
+             <label for="business">Business, Management</label>
+             <input type="radio" name="activity" id="education" value="education">
+             <label for="education">Education</label>
+             <input type="radio" name="activity" id="finance" value="Finance">
+             <label for="finance">Finance</label>
+             <input type="radio" name="activity" id="finance" value="government">
+             <label for="government">Government & Public Administration</label>
+             <input type="radio" name="activity" id="health" value="health">
+             <label for="health">Health Science</label>
+             <input type="radio" name="activity" id="hospitality" value="hospitality">
+             <label for="hospitality">Hospitality & Tourism</label>
+             <input type="radio" name="activity" id="human" value="human">
+             <label for="human">Human Services</label>
+             <input type="radio" name="activity" id="infotech" value="infotech">
+             <label for="infotech">Information Technology</label>
+             <input type="radio" name="activity" id="law" value="law">
+             <label for="law">Law, Public Safety, Corrections, & Security</label>
+             <input type="radio" name="activity" id="manufac" value="manufac">
+             <label for="manufac">Manufacturing</label>	
+			 
+             <input type="radio" name="activity" id="market" value="market">
+             <label for="market">Marketing</label>	
+             <input type="radio" name="activity" id="logistics" value="logistics">
+             <label for="logistics">Transportation, Distribution, and Logistics</label>	
+             <input type="radio" name="activity" id="stem" value="stem">
+             <label for="stem">Science, Technology, Engineering, and Mathematics</label>				 
+			 
+			 
+            <!-- Add more activities as needed -->
+        </div>
+     
+<!-- Organized list of ALL schools included. Modify their values HERE -->
+    <div id="schools">
+        <div class="school" data-activities="Agriculture and Environmental Systems">East Tech High School<br>Rhodes School of Environmental Studies</div>
+        <div class="school" data-activities="All Career Interests"><br>Bard High School Early College<br>Campus International High School<br>Cleveland Early College High School<br>Rhodes College and Career Academy</div>
+        <div class="school" data-activities="Architecture and Construction"><br>Cleveland School of Architecture and Design<br>Cleveland School of the Arts</div>
+      <div class="school" data-activities="Arts and Communication"><br>Cleveland High School for Digital Arts<br>Cleveland School of the Arts</div>
+      <div class="school" data-activities="business, management"><br>East Tech High School<br>Ginn Academy<br>John Marshall School of Civic and Business Leadership</div>
+      <div class="school" data-activities="education">Ginn Academy</div>
+      <div class="school" data-activities="Finance">East Tech High School<br>Rhodes School of Environmental Studies</div>
+      <div class="school" data-activities="government"><br>East Tech High School<br>Facing History New Tech High School<br>Ginn Academy<br>John Marshall School of Civic & Business Leadership<br>Lincoln-West School of Global Studies</div>	  
+      <div class="school" data-activities="health"><br>Cleveland School of Science & Medicine<br>Glenville High School<br>Lincoln-West School of Global Studies</div>	  
+	  <div class="school" data-activities="hospitality"><br>East Tech High School</div>	  
+	  <div class="school" data-activities="human"><br>East Tech High School<br>Facing History New Tech High School<br>Garret Morgan School of Leadership & Innovation<br>Ginn Academy<br>Lincoln-West School of Global Studies</div>	  	
+	  <div class="school" data-activities="infotech"><br>Collinwood High School<br>Facing History New Tech High School<br>Garret Morgan School of Engineering & Innovation<br>John Adams College & Career Academy<br>John Marshall School of Information Technology<br>Max S. Hayes High School<br>MC^2STEM<br>New Tech West</div>
+	  <div class="school" data-activities="law"><br>Davis Aerospace & Maritime High School<br>Ginn Academy<br>Glenville High School</div>	  
+ 	  <div class="school" data-activities="manufac"><br>Max S. Hayes High School<br>John F. Kennedy High School</div>
+	  <div class="school" data-activities="market"><br>East Tech High School</div>	
+	  <div class="school" data-activities="logistics"><br>Davis Aerospace & Maritime High School<br>Max S. Hayes High School</div>		
+	  <div class="school" data-activities="stem"><br>Cleveland Early College High School<br>Cleveland School of Architecture & Design<br>Cleveland School of Science & Medicine<br>Collinwood High School<br>Davis Aerospace & Maritime High School<br>East Tech High School<br>Facing History New Tech High School<br>Garret Morgan School of Engineering & Innovation<br>John Marshall School of Information Technology<br>John Marshall School of Engineering<br>Lincoln-West School of Science & Health<br>Max S. Hayes High School<br>MC^2STEM<br>New Tech West</div>		
+	  
+
+	  
+        <!-- End of schools and their activities list -->
+    </div>
+      
+ <!-- Script for the filter. -->     
+    <script>
+        const activityRadios = document.querySelectorAll('input[name="activity"]');
+        const schools = document.querySelectorAll('.school');
+
+        activityRadios.forEach((radio) => {
+            radio.addEventListener('change', () => {
+                const selectedActivity = document.querySelector('input[name="activity"]:checked').value;
+                schools.forEach((school) => {
+                    const activities = school.getAttribute('data-activities').split(', ');
+                    if (activities.includes(selectedActivity) || selectedActivity === "All") {
+                        school.style.display = 'block';
+                    } else {
+                        school.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+<!-- End of script -->
+      
+</body>
+</html>
